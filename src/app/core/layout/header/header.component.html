@@ -1,0 +1,42 @@
+<header class="header">
+  <div class="container header__container">
+    <div class="header__logo">
+      <a routerLink="/">
+        <span class="logo-text">{{brand.name}}</span>
+      </a>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <nav class="header__nav">
+      <ul class="header__menu">
+        <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Inicio</a></li>
+        <li><a routerLink="/nosotros" routerLinkActive="active">Sobre Mí</a></li>
+        <li><a routerLink="/especialidades" routerLinkActive="active">Especialidades</a></li>
+        <li><a routerLink="/psicologo-online" routerLinkActive="active">Consulta Online</a></li>
+        <li><a routerLink="/faq" routerLinkActive="active">FAQ</a></li>
+        <li><a routerLink="/contacto" routerLinkActive="active">Contacto</a></li>
+      </ul>
+      <a [routerLink]="brand.bookingUrl" class="btn-primary btn-sm">Agendar Consulta</a>
+    </nav>
+
+    <!-- Mobile Toggle -->
+    <button class="header__toggle" (click)="toggleMenu()" [class.active]="isMenuOpen" aria-label="Abrir menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="header__mobile-menu" [class.open]="isMenuOpen">
+    <ul>
+      <li><a routerLink="/" (click)="toggleMenu()">Inicio</a></li>
+      <li><a routerLink="/nosotros" (click)="toggleMenu()">Sobre Mí</a></li>
+      <li><a routerLink="/especialidades" (click)="toggleMenu()">Especialidades</a></li>
+      <li><a routerLink="/psicologo-online" (click)="toggleMenu()">Consulta Online</a></li>
+      <li><a routerLink="/faq" (click)="toggleMenu()">FAQ</a></li>
+      <li><a routerLink="/contacto" (click)="toggleMenu()">Contacto</a></li>
+      <li class="mt-4"><a [routerLink]="brand.bookingUrl" class="btn-primary w-full" (click)="toggleMenu()">Agendar Consulta</a></li>
+    </ul>
+  </div>
+</header>

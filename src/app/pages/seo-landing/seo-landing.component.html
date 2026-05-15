@@ -1,0 +1,84 @@
+<section class="landing-hero">
+  <div class="container landing-hero__grid">
+    <div class="landing-hero__content">
+      <h1 class="landing-hero__title">{{content.heroHeadline}}</h1>
+      <p class="landing-hero__text">{{content.heroSubheadline}}</p>
+      <div class="landing-hero__actions">
+        <a [routerLink]="brand.bookingUrl" class="btn-primary">Agendar Sesión</a>
+        <a [href]="brand.whatsappUrl" target="_blank" class="btn-whatsapp-outline">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="20" height="20">
+          Hablar por WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="problem-section py-8">
+  <div class="container text-center">
+    <h2 class="section-title">{{content.problemSection.title}}</h2>
+    <div class="problem-grid mt-4">
+      @for (point of content.problemSection.points; track point) {
+        <div class="problem-item">
+          <span class="problem-item__icon">!</span>
+          <p>{{point}}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="how-it-works py-8 bg-white">
+  <div class="container">
+    <h2 class="section-title text-center">{{content.howItWorks.title}}</h2>
+    <div class="how-grid mt-8">
+      @for (step of content.howItWorks.steps; track step.t; let i = $index) {
+        <div class="how-step">
+          <div class="how-step__number">0{{i+1}}</div>
+          <h3>{{step.t}}</h3>
+          <p>{{step.d}}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="testimonials-landing py-8">
+  <div class="container">
+    <h2 class="section-title text-center">Lo que dicen mis pacientes</h2>
+    <div class="testimonials-grid mt-8">
+      @for (test of content.testimonials; track test.author) {
+        <div class="testimonial-card-premium">
+          <p class="testimonial-card-premium__text">"{{test.text}}"</p>
+          <p class="testimonial-card-premium__author">— {{test.author}}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="faq-landing py-8 bg-white">
+  <div class="container container--narrow">
+    <h2 class="section-title text-center">Dudas frecuentes</h2>
+    <div class="faq-grid mt-8">
+      @for (faq of content.faqs; track faq.q) {
+        <div class="faq-item-simple">
+          <h3>{{faq.q}}</h3>
+          <p>{{faq.a}}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="final-cta py-8">
+  <div class="container text-center">
+    <h2 class="final-cta__title">El primer paso es el más importante.</h2>
+    <p class="final-cta__text">Inicia hoy tu camino hacia una vida más plena y consciente.</p>
+    <div class="mt-4">
+      <a [routerLink]="brand.bookingUrl" class="btn-primary">Reservar Cita Online</a>
+    </div>
+  </div>
+</section>
+
+<app-whatsapp-btn></app-whatsapp-btn>

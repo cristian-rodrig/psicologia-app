@@ -1,0 +1,35 @@
+@import '../../../styles/variables';
+
+.specialties-page {
+  padding: $spacing-xl 0;
+}
+
+.specialties-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-lg;
+  
+  @media (max-width: 768px) { grid-template-columns: 1fr; }
+}
+
+.spec-item {
+  background: $color-bg;
+  padding: $spacing-lg;
+  border-radius: 2rem;
+  transition: $transition-soft;
+  
+  &:hover {
+    background: $color-white;
+    box-shadow: 0 20px 40px rgba(74, 103, 65, 0.08);
+    transform: translateY(-5px);
+  }
+
+  h3 { color: $color-primary; margin-bottom: 1rem; font-size: 1.5rem; }
+  p { color: $color-text-light; margin-bottom: 1.5rem; line-height: 1.7; }
+  
+  .btn-text {
+    font-weight: 700;
+    color: $color-secondary;
+    &:hover { color: $color-primary; }
+  }
+}

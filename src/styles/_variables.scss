@@ -1,0 +1,24 @@
+// Palette: Serene Premium
+$color-bg: #FCFAF7;
+$color-primary: #4A6741; // Eucalyptus Green
+$color-primary-light: lighten(#4A6741, 10%);
+$color-secondary: #5D7B93; // Slate Blue
+$color-accent: #D4A373; // Earth Gold
+$color-text: #2D3436;
+$color-text-light: #636E72;
+$color-white: #FFFFFF;
+
+// Spacing (Golden Ratio based or standard scale)
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 2rem;
+$spacing-lg: 4rem;
+$spacing-xl: 8rem;
+
+// Typography
+$font-headings: 'Outfit', sans-serif;
+$font-body: 'Inter', sans-serif;
+
+// Transitions
+$transition-soft: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);

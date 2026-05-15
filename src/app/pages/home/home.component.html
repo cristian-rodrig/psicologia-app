@@ -1,0 +1,150 @@
+<!-- SECTION 1: HERO -->
+<section class="hero">
+  <div class="container hero__grid">
+    <div class="hero__content" appScrollReveal>
+      <span class="hero__badge">Psicología Online de Alta Gama</span>
+      <h1 class="hero__title">Sanar es un acto de valentía y amor propio.</h1>
+      <p class="hero__text">
+        Encuentra un espacio seguro, profesional y profundamente humano para reencontrarte contigo mismo. Terapia personalizada desde donde estés.
+      </p>
+      <div class="hero__actions">
+        <a [routerLink]="brand.bookingUrl" class="btn-primary">Agendar Sesión Inicial</a>
+        <a [href]="brand.whatsappUrl" target="_blank" class="hero__whatsapp">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="24" height="24">
+          Consulta por WhatsApp
+        </a>
+      </div>
+      <div class="hero__trust">
+        <div class="hero__trust-badge">
+          <span class="icon">🔒</span>
+          <span>100% Confidencial</span>
+        </div>
+        <div class="hero__trust-badge">
+          <span class="icon">📜</span>
+          <span>Profesionales Certificados</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero__image-wrapper" appScrollReveal>
+      <div class="hero__image-bg"></div>
+      <img ngSrc="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e" width="800" height="533" priority alt="Psicoterapia Online" class="hero__image">
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: PROBLEMS WE HELP WITH (MANDATORY CARDS) -->
+<section class="specialties" appScrollReveal>
+  <div class="container">
+    <app-section-title 
+      badge="Especialidades"
+      title="¿Cómo puedo acompañarte?" 
+      subtitle="Abordamos los desafíos emocionales más comunes con un enfoque empático y científico.">
+    </app-section-title>
+    
+    <div class="specialties__grid">
+      <div class="specialty-card">
+        <div class="specialty-card__icon">🌿</div>
+        <h3>Ansiedad</h3>
+        <p>Recupera la calma y el control ante los pensamientos intrusivos y el miedo constante.</p>
+      </div>
+      <div class="specialty-card">
+        <div class="specialty-card__icon">🧘</div>
+        <h3>Estrés</h3>
+        <p>Estrategias para gestionar las presiones diarias sin comprometer tu bienestar físico.</p>
+      </div>
+      <div class="specialty-card">
+        <div class="specialty-card__icon">🔥</div>
+        <h3>Burnout</h3>
+        <p>Sana el agotamiento laboral crónico y reconecta con tu propósito profesional.</p>
+      </div>
+      <div class="specialty-card">
+        <div class="specialty-card__icon">⚡</div>
+        <h3>Ataques de Pánico</h3>
+        <p>Herramientas de anclaje para superar el miedo paralizante de forma segura.</p>
+      </div>
+      <div class="specialty-card">
+        <div class="specialty-card__icon">🤝</div>
+        <h3>Relaciones</h3>
+        <p>Construye vínculos sanos basados en el respeto, la comunicación y el amor.</p>
+      </div>
+      <div class="specialty-card">
+        <div class="specialty-card__icon">⛓️</div>
+        <h3>Dependencia Emocional</h3>
+        <p>Rompe ciclos de apego inseguro y fortalece tu autonomía personal.</p>
+      </div>
+      <div class="specialty-card">
+        <div class="specialty-card__icon">⭐</div>
+        <h3>Autoestima</h3>
+        <p>Reconcíliate con tu imagen y reconoce tu valor intrínseco como persona.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: HOW IT WORKS -->
+<section appScrollReveal>
+  <app-section-title 
+    badge="Metodología"
+    title="Tu camino hacia el bienestar" 
+    subtitle="Un proceso claro y transparente para que te sientas seguro en cada paso.">
+  </app-section-title>
+  <app-process-section></app-process-section>
+</section>
+
+<!-- SECTION 5: BENEFITS (MANDATORY BENEFITS) -->
+<section class="benefits py-8 bg-bg" appScrollReveal>
+  <div class="container">
+    <app-section-title title="¿Por qué iniciar este proceso?" centered="true"></app-section-title>
+    <div class="benefits__grid">
+      <div class="benefit-item">
+        <span class="benefit-item__icon">🤫</span>
+        <h4>Confidencialidad</h4>
+        <p>Privacidad absoluta en cada palabra y sesión.</p>
+      </div>
+      <div class="benefit-item">
+        <span class="benefit-item__icon">📅</span>
+        <h4>Horarios Flexibles</h4>
+        <p>Atención que se adapta a tu ritmo de vida.</p>
+      </div>
+      <div class="benefit-item">
+        <span class="benefit-item__icon">💻</span>
+        <h4>Atención Online</h4>
+        <p>Terapia desde la comodidad de tu hogar.</p>
+      </div>
+      <div class="benefit-item">
+        <span class="benefit-item__icon">🎨</span>
+        <h4>Soporte Personalizado</h4>
+        <p>Un plan de sanación diseñado solo para ti.</p>
+      </div>
+      <div class="benefit-item">
+        <span class="benefit-item__icon">🛡️</span>
+        <h4>Espacio Seguro</h4>
+        <p>Libertad total para expresarte sin juicios.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6: TESTIMONIALS -->
+@defer (on viewport) {
+  <section class="testimonials" appScrollReveal>
+    <div class="container">
+      <app-section-title title="Historias de transformación"></app-section-title>
+      <div class="testimonials__grid">
+        <div class="testimonial-card">
+          <p class="testimonial-card__text">"Encontrar este espacio fue un antes y un después en mi vida. Me sentí escuchada y comprendida desde el primer minuto."</p>
+          <div class="testimonial-card__author">— Ana P., Ciudad de México</div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-card__text">"La flexibilidad de la terapia online me permitió priorizar mi salud mental sin descuidar mi trabajo."</p>
+          <div class="testimonial-card__author">— Carlos M., Monterrey</div>
+        </div>
+      </div>
+    </div>
+  </section>
+}
+
+<!-- FINAL CTA -->
+<app-booking-premium appScrollReveal></app-booking-premium>
+
+<app-whatsapp-btn></app-whatsapp-btn>

@@ -1,0 +1,25 @@
+<section class="faq-page">
+  <div class="container">
+    <h1 class="section-title text-center">Preguntas Frecuentes</h1>
+    <p class="section-subtitle text-center">Todo lo que necesitas saber antes de iniciar tu proceso.</p>
+
+    <div class="faq-container mt-8">
+      @for (faq of faqs; track $index) {
+        <div class="faq-item" [class.faq-item--open]="faq.isOpen">
+          <button class="faq-item__question" (click)="toggleFaq($index)">
+            {{faq.question}}
+            <span class="faq-item__icon"></span>
+          </button>
+          <div class="faq-item__answer">
+            <p>{{faq.answer}}</p>
+          </div>
+        </div>
+      }
+    </div>
+
+    <div class="faq-cta text-center mt-8">
+      <p>¿Todavía tienes dudas?</p>
+      <a href="https://wa.me/529841234567" target="_blank" class="btn-primary mt-2">Contáctame por WhatsApp</a>
+    </div>
+  </div>
+</section>

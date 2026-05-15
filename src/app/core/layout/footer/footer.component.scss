@@ -1,0 +1,53 @@
+@import '../../../styles/variables';
+
+.footer {
+  background-color: darken($color-bg, 3%);
+  padding: $spacing-lg 0 0;
+  border-top: 1px solid rgba(0,0,0,0.05);
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.5fr;
+    gap: $spacing-lg;
+    padding-bottom: $spacing-lg;
+  }
+
+  &__brand {
+    max-width: 350px;
+  }
+
+  &__description {
+    color: $color-text-light;
+    font-size: 0.95rem;
+  }
+
+  &__title {
+    margin-bottom: $spacing-sm;
+    font-size: 1.1rem;
+    color: $color-primary;
+  }
+
+  ul li {
+    margin-bottom: 0.8rem;
+    a {
+      color: $color-text-light;
+      font-size: 0.9rem;
+      &:hover { color: $color-primary; }
+    }
+  }
+
+  &__bottom {
+    border-top: 1px solid rgba(0,0,0,0.05);
+    padding: $spacing-sm 0;
+    text-align: center;
+    font-size: 0.85rem;
+    color: $color-text-light;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer__grid {
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
+  }
+}
