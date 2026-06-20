@@ -11,7 +11,7 @@ import { Component, Input } from '@angular/core';
     </div>
   `,
   styles: [`
-    @import '../../../styles/variables';
+    @use "variables" as *;
     .section-header {
       margin-bottom: $spacing-lg;
       &__badge {

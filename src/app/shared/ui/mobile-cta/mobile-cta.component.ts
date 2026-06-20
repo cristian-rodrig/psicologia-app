@@ -17,7 +17,7 @@ import { BRAND_CONFIG } from '../../../core/config/brand.config';
     </div>
   `,
   styles: [`
-    @import '../../../../styles/variables';
+    @use "variables" as *;
 
     .mobile-cta {
       display: none;

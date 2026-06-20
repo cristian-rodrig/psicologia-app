@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4A6741" />
+      <stop offset="100%" stop-color="#3b5234" />
+    </linearGradient>
+    <linearGradient id="warmGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4A373" />
+      <stop offset="100%" stop-color="#E9EDC6" />
+    </linearGradient>
+  </defs>
+  <!-- Background with premium rounded corners -->
+  <rect width="512" height="512" rx="128" fill="#FAFAF5"/>
+  
+  <!-- Conceptual design: Lotus/Leaf fusion representing mental growth, peace, and balance -->
+  <g transform="translate(56, 56)">
+    <!-- Outer left leaf (calm mind contour) -->
+    <path d="M200 50 C110 50 60 150 60 250 C60 350 150 370 200 370 C200 370 200 270 200 250 C200 150 220 50 200 50 Z" fill="url(#leafGrad)" />
+    
+    <!-- Outer right leaf -->
+    <path d="M200 50 C290 50 340 150 340 250 C340 350 250 370 200 370 C200 370 200 270 200 250 C200 150 180 50 200 50 Z" fill="#4A6741" opacity="0.85" />
+    
+    <!-- Inner therapeutic warm leaf/wing (represents warmth/humanistic therapy) -->
+    <path d="M200 180 C260 180 300 220 290 280 C280 330 230 350 200 350 Z" fill="url(#warmGrad)" opacity="0.95" />
+    <path d="M200 180 C140 180 100 220 110 280 C120 330 170 350 200 350 Z" fill="url(#warmGrad)" opacity="0.95" />
+    
+    <!-- Center light/insight dot (represents mindfulness/clarity) -->
+    <circle cx="200" cy="150" r="28" fill="#E9EDC6" filter="drop-shadow(0px 4px 10px rgba(74, 103, 65, 0.3))" />
+  </g>
+</svg>

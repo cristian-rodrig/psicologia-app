@@ -20,7 +20,7 @@
 
     <div class="contact__form-container">
       @if (!submitted) {
-        <form [formGroup] Barb ="contactForm" (ngSubmit)="onSubmit()" class="form">
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="form">
           <div class="form__group">
             <label for="name">Nombre Completo</label>
             <input type="text" id="name" formControlName="name" placeholder="Ej. María García">

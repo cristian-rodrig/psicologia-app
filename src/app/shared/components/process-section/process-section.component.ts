@@ -21,7 +21,7 @@ import { CommonModule } from '@angular/common';
     </section>
   `,
   styles: [`
-    @import '../../../../styles/variables';
+    @use "variables" as *;
     .process-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);

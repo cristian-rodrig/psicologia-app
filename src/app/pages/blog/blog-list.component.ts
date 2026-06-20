@@ -30,7 +30,7 @@ import { BlogService } from '../../core/services/blog.service';
     </section>
   `,
   styles: [`
-    @import '../../../styles/variables';
+    @use "variables" as *;
     .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: $spacing-md; }
     .blog-card { 
       background: white; border-radius: 1rem; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05);

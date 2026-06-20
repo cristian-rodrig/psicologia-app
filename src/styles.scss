@@ -1,4 +1,4 @@
-@import './styles/variables';
+@use './styles/variables' as *;
 
 // Global Reset & Base
 * {
@@ -12,7 +12,7 @@ html, body {
 }
 
 body {
-  font-family: $font-body;
+  font-family: $font-main;
   background-color: $color-bg;
   color: $color-text;
   line-height: 1.6;
@@ -54,7 +54,7 @@ button {
 
 // Utility Classes
 .text-center { text-align: center; }
-.mt-1 { margin-top: $spacing-xs; }
+.mt-1 { margin-top: 1rem; }
 .mt-2 { margin-top: $spacing-sm; }
 .mt-4 { margin-top: $spacing-md; }
 .mt-8 { margin-top: $spacing-lg; }

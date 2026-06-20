@@ -1,24 +1,24 @@
-// Palette: Serene Premium
-$color-bg: #FCFAF7;
-$color-primary: #4A6741; // Eucalyptus Green
-$color-primary-light: lighten(#4A6741, 10%);
-$color-secondary: #5D7B93; // Slate Blue
-$color-accent: #D4A373; // Earth Gold
-$color-text: #2D3436;
-$color-text-light: #636E72;
-$color-white: #FFFFFF;
+@use "sass:color";
 
-// Spacing (Golden Ratio based or standard scale)
-$spacing-xs: 0.5rem;
+// COLOR SYSTEM
+$color-primary: #4A6741; // Verde Eucalipto (Calma/Naturaleza)
+$color-primary-light: color.adjust(#4A6741, $lightness: 10%);
+$color-secondary: #D4A373; // Beige Tierra (Calidez)
+$color-accent: #E9EDC6; // Crema Suave
+$color-bg: #FAFAF5; // Fondo Hueso (Papel Premium)
+$color-white: #FFFFFF;
+$color-text: #2D3142; // Azul Pizarra (Elegancia/Seriedad)
+$color-text-light: #4F5D75;
+
+// TYPOGRAPHY
+$font-main: 'Inter', sans-serif;
+$font-headings: 'Outfit', sans-serif;
+
+// SPACING
 $spacing-sm: 1rem;
 $spacing-md: 2rem;
 $spacing-lg: 4rem;
 $spacing-xl: 8rem;
 
-// Typography
-$font-headings: 'Outfit', sans-serif;
-$font-body: 'Inter', sans-serif;
-
-// Transitions
-$transition-soft: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-$transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+// ANIMATIONS
+$transition-soft: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);

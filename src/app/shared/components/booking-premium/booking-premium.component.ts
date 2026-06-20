@@ -25,11 +25,13 @@ import { BRAND_CONFIG } from '../../../core/config/brand.config';
     </section>
   `,
   styles: [`
-    @import '../../../../styles/variables';
+    @use "sass:color";
+    @use "variables" as *;
+
     .booking-premium {
       padding: $spacing-xl 0;
       &__card {
-        background: linear-gradient(135deg, $color-primary 0%, darken($color-primary, 15%) 100%);
+        background: linear-gradient(135deg, $color-primary 0%, color.adjust($color-primary, $lightness: -15%) 100%);
         padding: $spacing-lg;
         border-radius: 3rem;
         display: grid;

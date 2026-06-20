@@ -32,10 +32,11 @@ import { WhatsappBtnComponent } from '../../shared/ui/whatsapp-btn/whatsapp-btn.
           </footer>
         </div>
       </article>
+      <app-whatsapp-btn></app-whatsapp-btn>
     }
   `,
   styles: [`
-    @import '../../../styles/variables';
+    @use "variables" as *;
     .container--narrow { max-width: 800px; }
     .blog-post {
       &__category { color: $color-secondary; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; }

@@ -1,4 +1,4 @@
-@import '../../../styles/variables';
+@use "variables" as *;
 
 .landing-hero {
   padding: $spacing-xl 0 $spacing-lg;
@@ -90,6 +90,6 @@
 }
 
 .trust-item {
-  h3 { color: $color-secondary; margin-bottom: $spacing-xs; }
+  h3 { color: $color-secondary; margin-bottom: $spacing-sm; }
   p { color: $color-text-light; font-size: 0.95rem; }
 }

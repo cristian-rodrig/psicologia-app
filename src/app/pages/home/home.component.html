@@ -94,7 +94,7 @@
 <!-- SECTION 5: BENEFITS (MANDATORY BENEFITS) -->
 <section class="benefits py-8 bg-bg" appScrollReveal>
   <div class="container">
-    <app-section-title title="¿Por qué iniciar este proceso?" centered="true"></app-section-title>
+    <app-section-title title="¿Por qué iniciar este proceso?" [centered]="true"></app-section-title>
     <div class="benefits__grid">
       <div class="benefit-item">
         <span class="benefit-item__icon">🤫</span>
@@ -142,6 +142,8 @@
       </div>
     </div>
   </section>
+} @placeholder {
+  <div class="container text-center py-5">Cargando testimonios...</div>
 }
 
 <!-- FINAL CTA -->

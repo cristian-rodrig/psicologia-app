@@ -1,7 +1,8 @@
-@import '../../../styles/variables';
+@use "sass:color";
+@use "variables" as *;
 
 .footer {
-  background-color: darken($color-bg, 3%);
+  background-color: color.adjust($color-bg, $lightness: -3%);
   padding: $spacing-lg 0 0;
   border-top: 1px solid rgba(0,0,0,0.05);
 

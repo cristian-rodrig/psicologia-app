@@ -1,4 +1,4 @@
-@import '../styles/variables';
+@use "variables" as *;
 
 .main-content {
   min-height: 80vh;

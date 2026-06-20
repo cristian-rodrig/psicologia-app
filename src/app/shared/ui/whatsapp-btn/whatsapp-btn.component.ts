@@ -16,7 +16,7 @@ import { BRAND_CONFIG } from '../../../core/config/brand.config';
     </a>
   `,
   styles: [`
-    @import '../../../styles/variables';
+    @use "variables" as *;
     
     .whatsapp-btn {
       position: fixed;

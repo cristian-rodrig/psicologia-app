@@ -1,39 +1,40 @@
-@import '../../../styles/variables';
+@use "sass:color";
+@use "variables" as vars;
 
 .cons-hero {
-  padding: $spacing-xl 0;
-  background: linear-gradient(135deg, $color-primary 0%, darken($color-primary, 10%) 100%);
-  color: $color-white;
+  padding: vars.$spacing-xl 0;
+  background: linear-gradient(135deg, vars.$color-primary 0%, color.adjust(vars.$color-primary, $lightness: -10%) 100%);
+  color: vars.$color-white;
   
-  &__title { color: $color-white; font-size: 3.5rem; }
-  &__text { color: rgba(255,255,255,0.8); font-size: 1.3rem; max-width: 700px; margin: $spacing-sm auto; }
+  &__title { color: vars.$color-white; font-size: 3.5rem; }
+  &__text { color: rgba(255,255,255,0.8); font-size: 1.3rem; max-width: 700px; margin: vars.$spacing-sm auto; }
 }
 
 .benefits-online__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: $spacing-lg;
+  gap: vars.$spacing-lg;
   
   @media (max-width: 768px) { grid-template-columns: 1fr; }
 }
 
 .benefit-card {
   text-align: center;
-  padding: $spacing-md;
-  background: $color-white;
+  padding: vars.$spacing-md;
+  background: vars.$color-white;
   border-radius: 1.5rem;
   box-shadow: 0 10px 30px rgba(0,0,0,0.03);
   
   &__icon { font-size: 3rem; margin-bottom: 1rem; }
-  h3 { color: $color-primary; margin-bottom: 0.8rem; }
-  p { color: $color-text-light; }
+  h3 { color: vars.$color-primary; margin-bottom: 0.8rem; }
+  p { color: vars.$color-text-light; }
 }
 
 .tech-badge {
   display: inline-block;
   padding: 0.5rem 1.5rem;
-  background: $color-bg;
-  color: $color-primary;
+  background: vars.$color-bg;
+  color: vars.$color-primary;
   border-radius: 50px;
   font-weight: 600;
   margin: 0.5rem;
@@ -43,14 +44,14 @@
 .steps-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: $spacing-lg;
+  gap: vars.$spacing-lg;
   
   @media (max-width: 768px) { grid-template-columns: 1fr; }
 }
 
 .step-box {
-  background: $color-bg;
-  padding: $spacing-lg;
+  background: vars.$color-bg;
+  padding: vars.$spacing-lg;
   border-radius: 2rem;
   text-align: center;
   position: relative;
@@ -62,7 +63,7 @@
     transform: translateX(-50%);
     width: 40px;
     height: 40px;
-    background: $color-accent;
+    background: vars.$color-accent;
     color: white;
     border-radius: 50%;
     display: flex;
@@ -72,5 +73,5 @@
   }
   
   h4 { margin-bottom: 1rem; }
-  p { color: $color-text-light; font-size: 0.95rem; }
+  p { color: vars.$color-text-light; font-size: 0.95rem; }
 }
