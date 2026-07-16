@@ -1,7 +1,8 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { BlogService } from '../../core/services/blog.service';
+import { SeoService } from '../../core/services/seo.service';
 
 @Component({
   selector: 'app-blog-list',
@@ -43,7 +44,37 @@ import { BlogService } from '../../core/services/blog.service';
     }
   `]
 })
-export class BlogListComponent {
+export class BlogListComponent implements OnInit {
   private blogService = inject(BlogService);
+  private seo = inject(SeoService);
   posts = this.blogService.getPosts();
+
+  ngOnInit() {
+    this.seo.updateMeta({
+      title: 'Recursos y Artículos de Psicología',
+      description: 'Explora recursos, artículos de blog y guías sobre salud mental, ansiedad, desarrollo personal y bienestar emocional.',
+      keywords: 'blog de psicología, artículos salud mental, gestionar ansiedad, consejos bienestar',
+      url: 'https://espaciodeescucha.com/blog'
+    });
+
+    const postsList = this.posts();
+    this.seo.setJsonLd({
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Recursos de Salud Mental | Espacio de Escucha",
+      "description": "Artículos informativos y educativos sobre psicología y desarrollo personal.",
+      "url": "https://espaciodeescucha.com/blog",
+      "blogPost": postsList.map(post => ({
+        "@type": "BlogPosting",
+        "headline": post.title,
+        "description": post.excerpt,
+        "image": post.image,
+        "datePublished": post.date,
+        "author": {
+          "@type": "Person",
+          "name": "Ines Gomez"
+        }
+      }))
+    }, 'blog-list-jsonld');
+  }
 }

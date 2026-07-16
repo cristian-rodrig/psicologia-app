@@ -13,22 +13,22 @@ export class FaqComponent implements OnInit {
   faqs = [
     {
       question: '¿Cómo funcionan las sesiones online?',
-      answer: 'Las sesiones se realizan a través de una plataforma de videollamada segura. Solo necesitas una conexión estable a internet y un espacio privado donde te sientas cómodo.',
+      answer: 'Las sesiones se realizan de manera online a través de videollamada (por plataformas seguras y confidenciales como Zoom, Google Meet o WhatsApp). Al agendar tu cita, recibirás un enlace exclusivo para conectarte el día y la hora acordados. Solo necesitas un dispositivo con conexión a internet (computadora, tableta o celular) y un espacio cómodo y privado donde te sientas tranquila y libre para hablar. La modalidad online nos permite trabajar juntas con total flexibilidad, sin importar las distancias.',
       isOpen: false
     },
     {
       question: '¿Cuánto dura cada sesión?',
-      answer: 'Cada sesión individual tiene una duración aproximada de 45 minutos.',
+      answer: 'Las sesiones individuales tienen una duración de 45 minutos. Diseñamos este espacio para que sea dinámico, concentrado y totalmente enfocado en tu bienestar, permitiéndonos avanzar con paso firme en cada consulta.',
       isOpen: false
     },
     {
       question: '¿Qué métodos de pago aceptan?',
-      answer: 'Aceptamos transferencias bancarias y pagos vía PayPal. El pago se realiza antes de iniciar la sesión.',
+      answer: 'Para tu mayor comodidad, puedes realizar tu pago mediante transferencia bancaria o a través de PayPal. Para asegurar y agendar tu espacio, te solicitamos realizar el pago antes de iniciar la sesión.',
       isOpen: false
     },
     {
-      question: '¿Es efectiva la terapia online comparada con la presencial?',
-      answer: 'Sí, múltiples estudios demuestran que la terapia online tiene el mismo nivel de eficacia que la presencial, con el beneficio añadido de la flexibilidad y comodidad del hogar.',
+      question: '¿Cuál es el enfoque del counseling?',
+      answer: 'En el counseling, el enfoque no es clínico o de "patología", sino que se centra en el desarrollo personal, la resolución de conflictos actuales, la toma de decisiones y el bienestar integral, acompañando a la persona desde el aquí y el ahora.',
       isOpen: false
     }
   ];

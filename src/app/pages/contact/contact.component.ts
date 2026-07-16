@@ -1,7 +1,8 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AnalyticsService } from '../../core/services/analytics.service';
+import { SeoService } from '../../core/services/seo.service';
 
 @Component({
   selector: 'app-contact',
@@ -10,9 +11,10 @@ import { AnalyticsService } from '../../core/services/analytics.service';
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss'
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit {
   private fb = inject(FormBuilder);
   private analytics = inject(AnalyticsService);
+  private seo = inject(SeoService);
   
   contactForm = this.fb.group({
     name: ['', [Validators.required, Validators.minLength(3)]],
@@ -23,6 +25,29 @@ export class ContactComponent {
 
   isSubmitting = false;
   submitted = false;
+
+  ngOnInit() {
+    this.seo.updateMeta({
+      title: 'Contacto | Agenda tu Sesión de Counseling',
+      description: 'Ponte en contacto con Ines Gomez para agendar tu primera sesión de counseling y terapia online. Inicia tu proceso de cambio y bienestar hoy.',
+      keywords: 'contacto psicólogo, agendar cita terapia, counseling online méxico, terapia individual online',
+      url: 'https://espaciodeescucha.com/contacto'
+    });
+
+    this.seo.setJsonLd({
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Contacto | Espacio de Escucha",
+      "description": "Formulario de contacto para agendar sesiones de counseling y terapia online con Ines Gomez.",
+      "url": "https://espaciodeescucha.com/contacto",
+      "mainEntity": {
+        "@type": "Psychologist",
+        "name": "Ines Gomez",
+        "telephone": "+52 9841666955",
+        "email": "Inesgomezpdc@gmail.com"
+      }
+    }, 'contact-jsonld');
+  }
 
   onSubmit() {
     if (this.contactForm.valid) {

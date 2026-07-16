@@ -21,7 +21,10 @@ export class SeoService {
     url?: string;
     type?: string;
   }) {
-    const fullTitle = `${config.title} | Espacio de Escucha`;
+    const fullTitle = config.title.includes('Espacio de Escucha') 
+      ? config.title 
+      : `${config.title} | Espacio de Escucha`;
+    
     this.title.setTitle(fullTitle);
     this.currentTitle.set(fullTitle);
 
@@ -31,19 +34,26 @@ export class SeoService {
       this.meta.updateTag({ name: 'keywords', content: config.keywords });
     }
 
+    const defaultImage = 'https://espaciodeescucha.com/assets/perfil1.jpeg';
+    const metaImage = config.image || defaultImage;
+    const metaUrl = config.url || 'https://espaciodeescucha.com';
+
     // Open Graph
     this.meta.updateTag({ property: 'og:title', content: fullTitle });
     this.meta.updateTag({ property: 'og:description', content: config.description });
     this.meta.updateTag({ property: 'og:type', content: config.type || 'website' });
+    this.meta.updateTag({ property: 'og:image', content: metaImage });
+    this.meta.updateTag({ property: 'og:url', content: metaUrl });
+    this.meta.updateTag({ property: 'og:site_name', content: 'Espacio de Escucha' });
+    this.meta.updateTag({ property: 'og:locale', content: 'es_MX' });
     
-    if (config.image) {
-      this.meta.updateTag({ property: 'og:image', content: config.image });
-    }
-    
-    if (config.url) {
-      this.meta.updateTag({ property: 'og:url', content: config.url });
-      this.updateCanonical(config.url);
-    }
+    // Twitter Cards
+    this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
+    this.meta.updateTag({ name: 'twitter:title', content: fullTitle });
+    this.meta.updateTag({ name: 'twitter:description', content: config.description });
+    this.meta.updateTag({ name: 'twitter:image', content: metaImage });
+
+    this.updateCanonical(metaUrl);
   }
 
   private updateCanonical(url: string) {
@@ -57,10 +67,11 @@ export class SeoService {
   }
 
   // Schema.org Structured Data
-  setJsonLd(data: any) {
-    let script = this.document.querySelector('script[type="application/ld+json"]');
+  setJsonLd(data: any, id: string = 'dynamic-jsonld') {
+    let script = this.document.getElementById(id);
     if (!script) {
       script = this.document.createElement('script');
+      script.setAttribute('id', id);
       script.setAttribute('type', 'application/ld+json');
       this.document.head.appendChild(script);
     }
@@ -75,6 +86,7 @@ export class SeoService {
       "description": brand.specialty,
       "url": "https://espaciodeescucha.com",
       "telephone": brand.phone,
+      "email": brand.email,
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Ciudad de México",
@@ -95,9 +107,6 @@ export class SeoService {
       ]
     };
     
-    const script = this.document.createElement('script');
-    script.setAttribute('type', 'application/ld+json');
-    script.textContent = JSON.stringify(data);
-    this.document.head.appendChild(script);
+    this.setJsonLd(data, 'local-business-jsonld');
   }
 }

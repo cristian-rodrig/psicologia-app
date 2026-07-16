@@ -63,10 +63,40 @@ export class BlogPostComponent implements OnInit {
     if (slug) {
       this.post = this.blogService.getPostBySlug(slug);
       if (this.post) {
+        const fullUrl = `https://espaciodeescucha.com/blog/${slug}`;
         this.seo.updateMeta({
           title: `${this.post.title} | Blog Espacio de Escucha`,
-          description: this.post.excerpt
+          description: this.post.excerpt,
+          image: this.post.image,
+          url: fullUrl,
+          type: 'article'
         });
+
+        this.seo.setJsonLd({
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": this.post.title,
+          "description": this.post.excerpt,
+          "image": this.post.image,
+          "datePublished": this.post.date,
+          "url": fullUrl,
+          "author": {
+            "@type": "Person",
+            "name": "Ines Gomez"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Espacio de Escucha",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://espaciodeescucha.com/favicon.svg"
+            }
+          },
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": fullUrl
+          }
+        }, 'blog-post-jsonld');
       }
     }
   }
