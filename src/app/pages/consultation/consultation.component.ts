@@ -18,7 +18,7 @@ export class ConsultationComponent implements OnInit {
   ngOnInit() {
     this.seo.updateMeta({
       title: 'Consulta Online | Terapia desde Casa con Calidez Humana',
-      description: 'Descubre los beneficios de la terapia online. Sesiones seguras, cómodas y eficaces con la Dra. Mariana Arvizu.'
+      description: 'Descubre los beneficios de la terapia online. Sesiones seguras, cómodas y eficaces con Ines Gomez.'
     });
   }
 }

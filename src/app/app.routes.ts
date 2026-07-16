@@ -4,32 +4,32 @@ export const routes: Routes = [
   {
     path: '',
     loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent),
-    title: 'SereneMind | Psicología Online Premium'
+    title: 'Counseling y Terapia Online | Espacio de Escucha'
   },
   {
     path: 'nosotros',
     loadComponent: () => import('./pages/about/about.component').then(m => m.AboutComponent),
-    title: 'Sobre Mí | SereneMind'
+    title: 'Sobre Mí | Espacio de Escucha'
   },
   {
     path: 'especialidades',
     loadComponent: () => import('./pages/specialties/specialties.component').then(m => m.SpecialtiesComponent),
-    title: 'Especialidades | SereneMind'
+    title: 'Especialidades | Espacio de Escucha'
   },
   {
     path: 'faq',
     loadComponent: () => import('./pages/faq/faq.component').then(m => m.FaqComponent),
-    title: 'Preguntas Frecuentes | SereneMind'
+    title: 'Preguntas Frecuentes | Espacio de Escucha'
   },
   {
     path: 'contacto',
     loadComponent: () => import('./pages/contact/contact.component').then(m => m.ContactComponent),
-    title: 'Contacto | SereneMind'
+    title: 'Contacto | Espacio de Escucha'
   },
   {
     path: 'blog',
     loadComponent: () => import('./pages/blog/blog-list.component').then(m => m.BlogListComponent),
-    title: 'Recursos y Artículos | SereneMind'
+    title: 'Recursos y Artículos | Espacio de Escucha'
   },
   {
     path: 'blog/:slug',
@@ -46,11 +46,7 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/seo-landing/seo-landing.component').then(m => m.SeoLandingComponent),
     data: { specialty: 'pareja' }
   },
-  {
-    path: 'manejo-de-estres',
-    loadComponent: () => import('./pages/seo-landing/seo-landing.component').then(m => m.SeoLandingComponent),
-    data: { specialty: 'estres' }
-  },
+
   {
     path: 'ayuda-ataques-de-panico',
     loadComponent: () => import('./pages/seo-landing/seo-landing.component').then(m => m.SeoLandingComponent),
@@ -59,12 +55,12 @@ export const routes: Routes = [
   {
     path: 'psicologo-online',
     loadComponent: () => import('./pages/consultation/consultation.component').then(m => m.ConsultationComponent),
-    title: 'Psicólogo Online | SereneMind'
+    title: 'Psicólogo Online | Espacio de Escucha'
   },
   {
     path: 'online-consultation',
     loadComponent: () => import('./pages/consultation/consultation.component').then(m => m.ConsultationComponent),
-    title: 'Online Consultation | SereneMind'
+    title: 'Online Consultation | Espacio de Escucha'
   },
   {
     path: '**',

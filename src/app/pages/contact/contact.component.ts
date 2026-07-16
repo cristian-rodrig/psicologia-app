@@ -27,14 +27,27 @@ export class ContactComponent {
   onSubmit() {
     if (this.contactForm.valid) {
       this.isSubmitting = true;
-      // Simulate API call
-      setTimeout(() => {
-        console.log('Form submitted:', this.contactForm.value);
+      
+      fetch('https://formsubmit.co/ajax/Inesgomezpdc@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(this.contactForm.value)
+      })
+      .then(response => response.json())
+      .then(data => {
         this.analytics.trackFormSubmission();
         this.isSubmitting = false;
         this.submitted = true;
         this.contactForm.reset();
-      }, 1500);
+      })
+      .catch(error => {
+        console.error('Error sending form:', error);
+        this.isSubmitting = false;
+        alert('Hubo un error al enviar el mensaje. Por favor, intenta de nuevo o comunícate vía WhatsApp.');
+      });
     }
   }
 }

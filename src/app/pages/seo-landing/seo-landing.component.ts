@@ -43,7 +43,7 @@ export class SeoLandingComponent implements OnInit {
     const data: Record<string, LandingContent> = {
       'ansiedad': {
         title: 'Terapia para la Ansiedad Online | Especialista en México',
-        description: 'Libérate de la ansiedad con psicoterapia online basada en evidencia. Sesiones privadas con la Dra. Mariana Arvizu.',
+        description: 'Libérate de la ansiedad con psicoterapia online basada en evidencia. Sesiones privadas con Ines Gomez.',
         heroHeadline: 'Tu mente merece calma. Tu vida merece paz.',
         heroSubheadline: 'Especialista en trastornos de ansiedad, ataques de pánico y fobia social. Recupera el control de tu presente hoy mismo.',
         problemSection: {

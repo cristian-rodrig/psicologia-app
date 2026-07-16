@@ -18,12 +18,12 @@ export class FaqComponent implements OnInit {
     },
     {
       question: '¿Cuánto dura cada sesión?',
-      answer: 'Cada sesión individual tiene una duración aproximada de 50 a 60 minutos.',
+      answer: 'Cada sesión individual tiene una duración aproximada de 45 minutos.',
       isOpen: false
     },
     {
       question: '¿Qué métodos de pago aceptan?',
-      answer: 'Aceptamos transferencias bancarias, tarjetas de crédito/débito y pagos vía PayPal. El pago se realiza antes de iniciar la sesión.',
+      answer: 'Aceptamos transferencias bancarias y pagos vía PayPal. El pago se realiza antes de iniciar la sesión.',
       isOpen: false
     },
     {

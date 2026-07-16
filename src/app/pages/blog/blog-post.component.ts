@@ -16,7 +16,7 @@ import { WhatsappBtnComponent } from '../../shared/ui/whatsapp-btn/whatsapp-btn.
           <header class="blog-post__header text-center">
             <span class="blog-post__category">{{post.category}}</span>
             <h1 class="blog-post__title">{{post.title}}</h1>
-            <div class="blog-post__meta">Por Dra. Mariana Arvizu • {{post.date}}</div>
+            <div class="blog-post__meta">Por Ines Gomez • {{post.date}}</div>
           </header>
           
           <div class="blog-post__image mt-4">
@@ -64,7 +64,7 @@ export class BlogPostComponent implements OnInit {
       this.post = this.blogService.getPostBySlug(slug);
       if (this.post) {
         this.seo.updateMeta({
-          title: `${this.post.title} | Blog SereneMind`,
+          title: `${this.post.title} | Blog Espacio de Escucha`,
           description: this.post.excerpt
         });
       }

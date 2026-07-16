@@ -67,6 +67,22 @@
         background: $color-white;
         box-shadow: 0 0 0 4px rgba(74, 103, 65, 0.1);
       }
+
+      &.input-error {
+        border-color: #e63946;
+        background: #fffcfc;
+        &:focus {
+          box-shadow: 0 0 0 4px rgba(230, 57, 70, 0.1);
+        }
+      }
+    }
+
+    .error-hint {
+      color: #e63946;
+      font-size: 0.8rem;
+      margin-top: 0.25rem;
+      font-weight: 500;
+      display: block;
     }
   }
 

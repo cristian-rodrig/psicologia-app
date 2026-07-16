@@ -2,13 +2,16 @@
 <section class="hero">
   <div class="container hero__grid">
     <div class="hero__content" appScrollReveal>
-      <span class="hero__badge">Psicología Online de Alta Gama</span>
-      <h1 class="hero__title">Sanar es un acto de valentía y amor propio.</h1>
-      <p class="hero__text">
-        Encuentra un espacio seguro, profesional y profundamente humano para reencontrarte contigo mismo. Terapia personalizada desde donde estés.
+      <span class="hero__badge">Consultoria psicológica counseling</span>
+      <h1 class="hero__title">CONOCERSE A UNO MISMO ES UN ACTO DE AMOR</h1>
+      <p class="hero__text" style="font-style: italic; margin-bottom: 1.5rem;">
+        "Hola, soy <strong>Ines Gomez</strong>, psicóloga. Creo firmemente que el bienestar integral no es la ausencia de problemas, sino la capacidad de conectar con nuestras propias herramientas para transitar los cambios con claridad y fortaleza.
+      </p>
+      <p class="hero__text" style="font-size: 1.1rem; color: #4F5D75; margin-bottom: 2rem;">
+        Como psicóloga y especialista en desarrollo personal, mi propósito es ofrecerte un faro y un espacio de contención. Aquí encontrarás una escucha empática, sin juicios, diseñada para acompañarte a mirar hacia adentro, ordenar el mapa de tus emociones y conectar con tu poder personal. Estoy aquí para caminar a tu lado en tu proceso de evolución y bienestar."
       </p>
       <div class="hero__actions">
-        <a [routerLink]="brand.bookingUrl" class="btn-primary">Agendar Sesión Inicial</a>
+        <a [routerLink]="brand.bookingUrl" class="btn-primary">Agendar Sesión</a>
         <a [href]="brand.whatsappUrl" target="_blank" class="hero__whatsapp">
           <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="24" height="24">
           Consulta por WhatsApp
@@ -19,15 +22,11 @@
           <span class="icon">🔒</span>
           <span>100% Confidencial</span>
         </div>
-        <div class="hero__trust-badge">
-          <span class="icon">📜</span>
-          <span>Profesionales Certificados</span>
-        </div>
       </div>
     </div>
     <div class="hero__image-wrapper" appScrollReveal>
       <div class="hero__image-bg"></div>
-      <img ngSrc="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e" width="800" height="533" priority alt="Psicoterapia Online" class="hero__image">
+      <img src="assets/perfil1.jpeg" alt="Psicoterapia Online" class="hero__image">
     </div>
   </div>
 </section>
@@ -52,16 +51,7 @@
         <h3>Estrés</h3>
         <p>Estrategias para gestionar las presiones diarias sin comprometer tu bienestar físico.</p>
       </div>
-      <div class="specialty-card">
-        <div class="specialty-card__icon">🔥</div>
-        <h3>Burnout</h3>
-        <p>Sana el agotamiento laboral crónico y reconecta con tu propósito profesional.</p>
-      </div>
-      <div class="specialty-card">
-        <div class="specialty-card__icon">⚡</div>
-        <h3>Ataques de Pánico</h3>
-        <p>Herramientas de anclaje para superar el miedo paralizante de forma segura.</p>
-      </div>
+
       <div class="specialty-card">
         <div class="specialty-card__icon">🤝</div>
         <h3>Relaciones</h3>
@@ -127,18 +117,36 @@
 
 <!-- SECTION 6: TESTIMONIALS -->
 @defer (on viewport) {
-  <section class="testimonials" appScrollReveal>
+  <section class="testimonials-carousel" appScrollReveal>
     <div class="container">
-      <app-section-title title="Historias de transformación"></app-section-title>
-      <div class="testimonials__grid">
-        <div class="testimonial-card">
-          <p class="testimonial-card__text">"Encontrar este espacio fue un antes y un después en mi vida. Me sentí escuchada y comprendida desde el primer minuto."</p>
-          <div class="testimonial-card__author">— Ana P., Ciudad de México</div>
+      <app-section-title title="Historias de transformación" [centered]="true"></app-section-title>
+      
+      <div class="carousel-container">
+        <button class="carousel-btn prev-btn" (click)="prevTestimonial()" aria-label="Anterior">‹</button>
+        
+        <div class="carousel-track">
+          <div class="testimonial-slide active">
+            <span class="quote-mark">“</span>
+            <p class="testimonial-text">"{{ testimonials[currentTestimonialIndex].text }}"</p>
+            <div class="testimonial-info">
+              <span class="testimonial-author">— {{ testimonials[currentTestimonialIndex].author }}</span>
+              <span class="testimonial-tag">{{ testimonials[currentTestimonialIndex].details }}</span>
+            </div>
+          </div>
         </div>
-        <div class="testimonial-card">
-          <p class="testimonial-card__text">"La flexibilidad de la terapia online me permitió priorizar mi salud mental sin descuidar mi trabajo."</p>
-          <div class="testimonial-card__author">— Carlos M., Monterrey</div>
-        </div>
+        
+        <button class="carousel-btn next-btn" (click)="nextTestimonial()" aria-label="Siguiente">›</button>
+      </div>
+      
+      <div class="carousel-dots">
+        @for (item of testimonials; track $index) {
+          <button 
+            class="dot-btn" 
+            [class.active]="$index === currentTestimonialIndex" 
+            (click)="currentTestimonialIndex = $index"
+            aria-label="Ir a diapositiva">
+          </button>
+        }
       </div>
     </div>
   </section>

@@ -1,6 +1,6 @@
 # Estrategia de Producción: PSICOLOGIA-APP
 
-Este documento contiene las recomendaciones estratégicas para el lanzamiento, optimización y escalado de la plataforma SereneMind, cumpliendo con los requisitos de **Senior SEO, Google Ads Expert y UX Specialist**.
+Este documento contiene las recomendaciones estratégicas para el lanzamiento, optimización y escalado de la plataforma Espacio de Escucha, cumpliendo con los requisitos de **Senior SEO, Google Ads Expert y UX Specialist**.
 
 ---
 

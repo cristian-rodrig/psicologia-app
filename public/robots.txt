@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://serenemind.com/sitemap.xml
+Sitemap: https://espaciodeescucha.com/sitemap.xml

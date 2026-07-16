@@ -21,7 +21,7 @@ export class SeoService {
     url?: string;
     type?: string;
   }) {
-    const fullTitle = `${config.title} | SereneMind`;
+    const fullTitle = `${config.title} | Espacio de Escucha`;
     this.title.setTitle(fullTitle);
     this.currentTitle.set(fullTitle);
 
@@ -73,7 +73,7 @@ export class SeoService {
       "@type": "Psychologist",
       "name": brand.professionalName,
       "description": brand.specialty,
-      "url": "https://serenemind.com",
+      "url": "https://espaciodeescucha.com",
       "telephone": brand.phone,
       "address": {
         "@type": "PostalAddress",
