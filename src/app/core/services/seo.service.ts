@@ -34,9 +34,9 @@ export class SeoService {
       this.meta.updateTag({ name: 'keywords', content: config.keywords });
     }
 
-    const defaultImage = 'https://espaciodeescucha.com/assets/perfil1.jpeg';
+    const defaultImage = 'https://espaciodeescuchaonline.com/assets/perfil1.jpeg';
     const metaImage = config.image || defaultImage;
-    const metaUrl = config.url || 'https://espaciodeescucha.com';
+    const metaUrl = config.url || 'https://espaciodeescuchaonline.com';
 
     // Open Graph
     this.meta.updateTag({ property: 'og:title', content: fullTitle });
@@ -84,7 +84,7 @@ export class SeoService {
       "@type": "Psychologist",
       "name": brand.professionalName,
       "description": brand.specialty,
-      "url": "https://espaciodeescucha.com",
+      "url": "https://espaciodeescuchaonline.com",
       "telephone": brand.phone,
       "email": brand.email,
       "address": {

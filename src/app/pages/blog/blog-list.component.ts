@@ -54,7 +54,7 @@ export class BlogListComponent implements OnInit {
       title: 'Recursos y Artículos de Psicología',
       description: 'Explora recursos, artículos de blog y guías sobre salud mental, ansiedad, desarrollo personal y bienestar emocional.',
       keywords: 'blog de psicología, artículos salud mental, gestionar ansiedad, consejos bienestar',
-      url: 'https://espaciodeescucha.com/blog'
+      url: 'https://espaciodeescuchaonline.com/blog'
     });
 
     const postsList = this.posts();
@@ -63,7 +63,7 @@ export class BlogListComponent implements OnInit {
       "@type": "Blog",
       "name": "Recursos de Salud Mental | Espacio de Escucha",
       "description": "Artículos informativos y educativos sobre psicología y desarrollo personal.",
-      "url": "https://espaciodeescucha.com/blog",
+      "url": "https://espaciodeescuchaonline.com/blog",
       "blogPost": postsList.map(post => ({
         "@type": "BlogPosting",
         "headline": post.title,

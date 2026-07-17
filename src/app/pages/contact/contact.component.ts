@@ -31,7 +31,7 @@ export class ContactComponent implements OnInit {
       title: 'Contacto | Agenda tu Sesión de Counseling',
       description: 'Ponte en contacto con Ines Gomez para agendar tu primera sesión de counseling y terapia online. Inicia tu proceso de cambio y bienestar hoy.',
       keywords: 'contacto psicólogo, agendar cita terapia, counseling online méxico, terapia individual online',
-      url: 'https://espaciodeescucha.com/contacto'
+      url: 'https://espaciodeescuchaonline.com/contacto'
     });
 
     this.seo.setJsonLd({
@@ -39,7 +39,7 @@ export class ContactComponent implements OnInit {
       "@type": "ContactPage",
       "name": "Contacto | Espacio de Escucha",
       "description": "Formulario de contacto para agendar sesiones de counseling y terapia online con Ines Gomez.",
-      "url": "https://espaciodeescucha.com/contacto",
+      "url": "https://espaciodeescuchaonline.com/contacto",
       "mainEntity": {
         "@type": "Psychologist",
         "name": "Ines Gomez",

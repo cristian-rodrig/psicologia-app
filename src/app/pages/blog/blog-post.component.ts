@@ -63,7 +63,7 @@ export class BlogPostComponent implements OnInit {
     if (slug) {
       this.post = this.blogService.getPostBySlug(slug);
       if (this.post) {
-        const fullUrl = `https://espaciodeescucha.com/blog/${slug}`;
+        const fullUrl = `https://espaciodeescuchaonline.com/blog/${slug}`;
         this.seo.updateMeta({
           title: `${this.post.title} | Blog Espacio de Escucha`,
           description: this.post.excerpt,
@@ -89,7 +89,7 @@ export class BlogPostComponent implements OnInit {
             "name": "Espacio de Escucha",
             "logo": {
               "@type": "ImageObject",
-              "url": "https://espaciodeescucha.com/favicon.svg"
+              "url": "https://espaciodeescuchaonline.com/favicon.svg"
             }
           },
           "mainEntityOfPage": {

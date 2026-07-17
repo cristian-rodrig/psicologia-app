@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://espaciodeescucha.com/sitemap.xml
+Sitemap: https://espaciodeescuchaonline.com/sitemap.xml
