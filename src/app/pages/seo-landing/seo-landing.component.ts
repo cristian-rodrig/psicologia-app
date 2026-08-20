@@ -3,6 +3,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { SeoService } from '../../core/services/seo.service';
 import { WhatsappBtnComponent } from '../../shared/ui/whatsapp-btn/whatsapp-btn.component';
 import { BRAND_CONFIG } from '../../core/config/brand.config';
+import { WhatsappAccessService } from '../../core/services/whatsapp-access.service';
 
 interface LandingContent {
   title: string;
@@ -25,6 +26,7 @@ interface LandingContent {
 export class SeoLandingComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private seo = inject(SeoService);
+  public whatsappAccess = inject(WhatsappAccessService);
   brand = BRAND_CONFIG;
   
   content!: LandingContent;

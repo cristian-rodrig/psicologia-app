@@ -5,10 +5,16 @@
       <p class="landing-hero__text">{{content.heroSubheadline}}</p>
       <div class="landing-hero__actions">
         <a [routerLink]="brand.bookingUrl" class="btn-primary">Agendar Sesión</a>
-        <a [href]="brand.whatsappUrl" target="_blank" class="btn-whatsapp-outline">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="20" height="20">
-          Hablar por WhatsApp
-        </a>
+        @if (whatsappAccess.isUnlocked()) {
+          <a [href]="whatsappAccess.getCustomWhatsappUrl()" target="_blank" class="btn-whatsapp-outline">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="20" height="20">
+            Hablar por WhatsApp
+          </a>
+        } @else {
+          <a routerLink="/contacto" class="btn-whatsapp-outline">
+            🔒 Contactar por Formulario
+          </a>
+        }
       </div>
     </div>
   </div>

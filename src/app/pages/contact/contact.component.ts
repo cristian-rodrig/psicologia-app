@@ -3,6 +3,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AnalyticsService } from '../../core/services/analytics.service';
 import { SeoService } from '../../core/services/seo.service';
+import { WhatsappAccessService } from '../../core/services/whatsapp-access.service';
 
 @Component({
   selector: 'app-contact',
@@ -15,6 +16,7 @@ export class ContactComponent implements OnInit {
   private fb = inject(FormBuilder);
   private analytics = inject(AnalyticsService);
   private seo = inject(SeoService);
+  public whatsappAccess = inject(WhatsappAccessService);
   
   contactForm = this.fb.group({
     name: ['', [Validators.required, Validators.minLength(3)]],
@@ -25,6 +27,7 @@ export class ContactComponent implements OnInit {
 
   isSubmitting = false;
   submitted = false;
+  userNameSubmitted = '';
 
   ngOnInit() {
     this.seo.updateMeta({
@@ -52,6 +55,8 @@ export class ContactComponent implements OnInit {
   onSubmit() {
     if (this.contactForm.valid) {
       this.isSubmitting = true;
+      const submittedName = this.contactForm.value.name || '';
+      this.userNameSubmitted = submittedName;
       
       fetch('https://formsubmit.co/ajax/Inesgomezpdc@gmail.com', {
         method: 'POST',
@@ -64,14 +69,17 @@ export class ContactComponent implements OnInit {
       .then(response => response.json())
       .then(data => {
         this.analytics.trackFormSubmission();
+        this.whatsappAccess.unlock(submittedName);
         this.isSubmitting = false;
         this.submitted = true;
         this.contactForm.reset();
       })
       .catch(error => {
         console.error('Error sending form:', error);
+        // Fallback: unlock even if ajax network error happens so legitimate user isn't stuck
+        this.whatsappAccess.unlock(submittedName);
         this.isSubmitting = false;
-        alert('Hubo un error al enviar el mensaje. Por favor, intenta de nuevo o comunícate vía WhatsApp.');
+        this.submitted = true;
       });
     }
   }

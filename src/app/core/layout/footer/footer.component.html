@@ -22,7 +22,13 @@
     <div class="footer__contact">
       <h4 class="footer__title">Contacto</h4>
       <ul>
-        <li><a href="https://wa.me/529841666955" target="_blank">WhatsApp: +52 9841666955</a></li>
+        <li>
+          @if (whatsappAccess.isUnlocked()) {
+            <a [href]="whatsappAccess.getCustomWhatsappUrl()" target="_blank">WhatsApp: +52 9841666955</a>
+          } @else {
+            <a routerLink="/contacto">WhatsApp: 🔒 Habilitar por Formulario</a>
+          }
+        </li>
         <li><a href="mailto:Inesgomezpdc@gmail.com">Inesgomezpdc@gmail.com</a></li>
       </ul>
     </div>

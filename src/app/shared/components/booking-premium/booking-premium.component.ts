@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { BRAND_CONFIG } from '../../../core/config/brand.config';
+import { WhatsappAccessService } from '../../../core/services/whatsapp-access.service';
 
 @Component({
   selector: 'app-booking-premium',
@@ -14,7 +15,11 @@ import { BRAND_CONFIG } from '../../../core/config/brand.config';
           <p class="booking-premium__text">Tu salud mental es la mejor inversión que puedes hacer. Reserva tu primera sesión hoy y comienza a construir la vida que deseas.</p>
           <div class="booking-premium__actions">
             <a [routerLink]="brand.bookingUrl" class="btn-primary">Reservar Consulta Online</a>
-            <a [href]="brand.whatsappUrl" target="_blank" class="btn-whatsapp-outline">Escríbeme por WhatsApp</a>
+            @if (whatsappAccess.isUnlocked()) {
+              <a [href]="whatsappAccess.getCustomWhatsappUrl()" target="_blank" class="btn-whatsapp-outline">Escríbeme por WhatsApp</a>
+            } @else {
+              <a routerLink="/contacto" class="btn-whatsapp-outline">Contactar por Formulario</a>
+            }
           </div>
         </div>
         <div class="booking-premium__visual">
@@ -60,6 +65,10 @@ import { BRAND_CONFIG } from '../../../core/config/brand.config';
       color: white;
       border-radius: 50px;
       font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       &:hover { background: white; color: $color-primary; }
     }
     @media (max-width: 992px) {
@@ -71,4 +80,5 @@ import { BRAND_CONFIG } from '../../../core/config/brand.config';
 })
 export class BookingPremiumComponent {
   brand = BRAND_CONFIG;
+  public whatsappAccess = inject(WhatsappAccessService);
 }

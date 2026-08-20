@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { BRAND_CONFIG } from '../../../core/config/brand.config';
+import { WhatsappAccessService } from '../../../core/services/whatsapp-access.service';
 
 @Component({
   selector: 'app-mobile-cta',
@@ -8,10 +9,16 @@ import { BRAND_CONFIG } from '../../../core/config/brand.config';
   imports: [RouterLink],
   template: `
     <div class="mobile-cta">
-      <a [href]="brand.whatsappUrl" target="_blank" class="mobile-cta__btn mobile-cta__btn--whatsapp">
-        WhatsApp
-      </a>
-      <a [routerLink]="brand.bookingUrl" class="mobile-cta__btn mobile-cta__btn--primary">
+      @if (whatsappAccess.isUnlocked()) {
+        <a [href]="whatsappAccess.getCustomWhatsappUrl()" target="_blank" class="mobile-cta__btn mobile-cta__btn--whatsapp">
+          💬 Abrir WhatsApp
+        </a>
+      } @else {
+        <a routerLink="/contacto" class="mobile-cta__btn mobile-cta__btn--secondary">
+          🔒 Contactar / WhatsApp
+        </a>
+      }
+      <a routerLink="/contacto" class="mobile-cta__btn mobile-cta__btn--primary">
         Agendar Cita
       </a>
     </div>
@@ -38,10 +45,16 @@ import { BRAND_CONFIG } from '../../../core/config/brand.config';
         text-align: center;
         font-weight: 700;
         font-size: 0.9rem;
+        text-decoration: none;
         
         &--whatsapp {
           background-color: #25D366;
           color: white;
+        }
+
+        &--secondary {
+          background-color: #E2E8F0;
+          color: #4A5568;
         }
         
         &--primary {
@@ -60,4 +73,5 @@ import { BRAND_CONFIG } from '../../../core/config/brand.config';
 })
 export class MobileCtaComponent {
   brand = BRAND_CONFIG;
+  public whatsappAccess = inject(WhatsappAccessService);
 }

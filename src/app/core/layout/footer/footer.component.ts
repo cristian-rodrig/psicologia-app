@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { WhatsappAccessService } from '../../../core/services/whatsapp-access.service';
 
 @Component({
   selector: 'app-footer',
@@ -10,4 +11,5 @@ import { RouterLink } from '@angular/router';
 })
 export class FooterComponent {
   currentYear = new Date().getFullYear();
+  public whatsappAccess = inject(WhatsappAccessService);
 }

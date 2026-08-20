@@ -1,14 +1,18 @@
 import { Component, OnInit, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { SeoService } from '../../core/services/seo.service';
+import { WhatsappAccessService } from '../../core/services/whatsapp-access.service';
 
 @Component({
   selector: 'app-faq',
   standalone: true,
+  imports: [RouterLink],
   templateUrl: './faq.component.html',
   styleUrl: './faq.component.scss'
 })
 export class FaqComponent implements OnInit {
   private seo = inject(SeoService);
+  public whatsappAccess = inject(WhatsappAccessService);
 
   faqs = [
     {

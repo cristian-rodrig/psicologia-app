@@ -3,16 +3,24 @@
     <div class="contact__info">
       <h1 class="contact__title">Empecemos a trabajar en ti.</h1>
       <p class="contact__text">
-        Si tienes dudas o quieres agendar tu primera sesión, completa el formulario o contáctame directamente por WhatsApp.
+        Para garantizar una atención personalizada y evitar mensajes automáticos, completa este breve formulario de consulta. **Al enviarlo, se habilitará automáticamente tu acceso directo a mi WhatsApp.**
       </p>
       
       <div class="contact__details">
         <div class="contact__item">
-          <strong>WhatsApp:</strong>
-          <a href="https://wa.me/529841666955" target="_blank">+52 9841666955</a>
+          <strong>Atención por WhatsApp:</strong>
+          @if (whatsappAccess.isUnlocked()) {
+            <a [href]="whatsappAccess.getCustomWhatsappUrl()" target="_blank" class="contact__wa-active">
+              🟢 Chat Habilitado (+52 9841666955)
+            </a>
+          } @else {
+            <span class="contact__wa-locked">
+              🔒 Habilitado al enviar el formulario
+            </span>
+          }
         </div>
         <div class="contact__item">
-          <strong>Email:</strong>
+          <strong>Email de Consulta:</strong>
           <a href="mailto:Inesgomezpdc@gmail.com">Inesgomezpdc@gmail.com</a>
         </div>
       </div>
@@ -65,15 +73,23 @@
           </div>
 
           <button type="submit" [disabled]="contactForm.invalid || isSubmitting" class="btn-primary form__submit">
-            {{ isSubmitting ? 'Enviando...' : 'Enviar Mensaje' }}
+            {{ isSubmitting ? 'Enviando...' : 'Enviar Consulta y Habilitar WhatsApp' }}
           </button>
         </form>
       } @else {
         <div class="success-message text-center">
           <div class="success-message__icon">✓</div>
-          <h3>¡Mensaje enviado con éxito!</h3>
-          <p>Me pondré en contacto contigo a la brevedad posible.</p>
-          <button (click)="submitted = false" class="btn-accent mt-2">Enviar otro mensaje</button>
+          <h3>¡Consulta recibida con éxito!</h3>
+          <p class="mb-3">Muchas gracias {{ userNameSubmitted }}. Tu solicitud ha sido registrada y tu canal directo a WhatsApp ya está habilitado.</p>
+          
+          <div class="success-message__whatsapp-box">
+            <a [href]="whatsappAccess.getCustomWhatsappUrl()" target="_blank" class="btn-whatsapp-unlocked">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+              <span>Continuar Consulta por WhatsApp Ahora</span>
+            </a>
+          </div>
+
+          <button (click)="submitted = false" class="btn-secondary mt-3">Enviar otra consulta</button>
         </div>
       }
     </div>

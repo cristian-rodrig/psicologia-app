@@ -7,6 +7,7 @@ import { SectionTitleComponent } from '../../shared/components/section-title/sec
 import { ProcessSectionComponent } from '../../shared/components/process-section/process-section.component';
 import { BookingPremiumComponent } from '../../shared/components/booking-premium/booking-premium.component';
 import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal.directive';
+import { WhatsappAccessService } from '../../core/services/whatsapp-access.service';
 import { BRAND_CONFIG } from '../../core/config/brand.config';
 
 @Component({
@@ -26,6 +27,7 @@ import { BRAND_CONFIG } from '../../core/config/brand.config';
 })
 export class HomeComponent implements OnInit {
   private seo = inject(SeoService);
+  public whatsappAccess = inject(WhatsappAccessService);
   brand = BRAND_CONFIG;
 
   testimonials = [
